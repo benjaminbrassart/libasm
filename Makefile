@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 09:01:16 by bbrassar          #+#    #+#              #
-#    Updated: 2023/01/30 10:45:03 by bbrassar         ###   ########.fr        #
+#    Updated: 2023/01/30 10:54:22 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ DIR_OBJ := obj
 SRC := ft_strlen.s
 SRC += ft_strcpy.s
 SRC += ft_strdup.s
+SRC += ft_strcmp.s
 OBJ := $(SRC:%.s=$(DIR_OBJ)/%.o)
 
 $(NAME): $(OBJ)
