@@ -9,20 +9,20 @@ global ft_strcpy
 ;
 ft_strcpy:
     push rdi            ; save `dst` to the stack so we can return it later
-    jmp _loop
+    jmp .loop
 
-_loop:
+.loop:
     mov rax, [rsi]      ; tmp = *src
     mov [rdi], rax      ; *dst = tmp
 
     cmp byte [rsi], 0   ; *src == 0
-    je _end
+    je .end
 
     inc rdi             ; ++dst
     inc rsi             ; ++src
 
-    jmp _loop
+    jmp .loop
 
-_end:
+.end:
     pop rax             ; get `dst` back from the stack and put it in the return value
     ret
