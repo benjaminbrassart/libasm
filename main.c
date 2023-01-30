@@ -6,11 +6,12 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:10:36 by bbrassar          #+#    #+#             */
-/*   Updated: 2023/01/30 11:40:11 by bbrassar         ###   ########.fr       */
+/*   Updated: 2023/01/30 12:07:39 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -23,6 +24,7 @@ static void __test_ft_strlen(char const *str);
 static void __test_ft_strcpy(char const *str);
 static void __test_ft_strdup(char const *str);
 static void __test_ft_strcmp(char const *str);
+static void __test_ft_write(char const *str);
 
 typedef struct
 {
@@ -43,6 +45,7 @@ static t_test_decl const TEST_FUNCTIONS[] = {
 	TEST_FUNCTION(ft_strcpy),
 	TEST_FUNCTION(ft_strdup),
 	TEST_FUNCTION(ft_strcmp),
+	TEST_FUNCTION(ft_write),
 };
 
 int main(void)
@@ -91,4 +94,20 @@ static void __test_ft_strcmp(char const *str)
 		res = strcmp(str, TEST_VALUES[j]);
 		printf("(std) \"%s\" == \"%s\": %s (%d)\n\n", str, TEST_VALUES[j], (res == 0) ? "true" : "false", res);
 	}
+}
+
+static void __test_ft_write_fd(char const *str, int fd)
+{
+	printf("(");
+	fflush(stdout);
+	int res = ft_write(fd, str, ft_strlen(str));
+	int errnum = errno;
+	printf(") %d (errno: %d)\n", res, errnum);
+}
+
+static void __test_ft_write(char const *str)
+{
+	for (int fd = 0; fd < 4; ++fd)
+		__test_ft_write_fd(str, fd);
+	printf("\n");
 }
