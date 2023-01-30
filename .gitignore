@@ -1,3 +1,5 @@
 /obj/
 /libasm.a
+/libasm_bonus.a
 /a.out
+/bonus.out
