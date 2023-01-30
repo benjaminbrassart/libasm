@@ -6,12 +6,13 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:10:36 by bbrassar          #+#    #+#             */
-/*   Updated: 2023/01/30 09:54:37 by bbrassar         ###   ########.fr       */
+/*   Updated: 2023/01/30 10:43:58 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libasm.h"
 #include <stdio.h>
+#include <stdlib.h>
 
 #define TEST_FUNCTION(Name) {#Name, __test_ ## Name}
 
@@ -19,6 +20,7 @@ typedef void (*t_test_func)(char const *);
 
 static void __test_ft_strlen(char const *str);
 static void __test_ft_strcpy(char const *str);
+static void __test_ft_strdup(char const *str);
 
 typedef struct
 {
@@ -37,6 +39,7 @@ static char const* TEST_VALUES[] = {
 static t_test_decl const TEST_FUNCTIONS[] = {
 	TEST_FUNCTION(ft_strlen),
 	TEST_FUNCTION(ft_strcpy),
+	TEST_FUNCTION(ft_strdup),
 };
 
 int main(void)
@@ -60,4 +63,12 @@ static void __test_ft_strcpy(char const *str)
 	char* res = ft_strcpy(buffer, str);
 
 	printf("'%s' (addr match: %s)\n", res, (buffer == res) ? "true" : "false");
+}
+
+static void __test_ft_strdup(char const *str)
+{
+	char* buffer = ft_strdup(str);
+
+	printf("ft_strdup(\"%s\") = \"%s\" (addr match: %s)\n", str, buffer, (str == buffer) ? "true" : "false");
+	free(buffer);
 }
