@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:13:01 by bbrassar          #+#    #+#             */
-/*   Updated: 2023/01/30 09:13:44 by bbrassar         ###   ########.fr       */
+/*   Updated: 2023/01/30 09:34:43 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 # include <stddef.h>
 
 size_t	ft_strlen(char const *str);
+char	*ft_strcpy(char *dst, char const *src);
 
 #endif
