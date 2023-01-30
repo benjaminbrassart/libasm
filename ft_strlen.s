@@ -1,5 +1,11 @@
 global ft_strlen
 
+;
+; size_t ft_strlen(char const* str)
+;
+; str = rdi
+; return = rax
+;
 ft_strlen:
     mov rax, 0                  ; n = 0
     jmp _loop
