@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 09:01:16 by bbrassar          #+#    #+#              #
-#    Updated: 2023/01/30 09:23:11 by bbrassar         ###   ########.fr        #
+#    Updated: 2023/01/30 09:55:35 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,13 @@ NAME := libasm.a
 MAIN := a.out
 
 AS := nasm
-ASFLAGS := -felf64
+ASFLAGS := -felf64 -Fdwarf -g
 
 AR := ar
 ARFLAGS := rs
 
 CC := cc
-CFLAGS := -Wall -Werror -Wextra -c
+CFLAGS := -Wall -Werror -Wextra -c -g3
 
 LD := cc
 LDLIBS := -lasm
@@ -33,6 +33,7 @@ DIR_SRC := .
 DIR_OBJ := obj
 
 SRC := ft_strlen.s
+SRC += ft_strcpy.s
 OBJ := $(SRC:%.s=$(DIR_OBJ)/%.o)
 
 $(NAME): $(OBJ)
