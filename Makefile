@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 09:01:16 by bbrassar          #+#    #+#              #
-#    Updated: 2023/01/30 12:18:01 by bbrassar         ###   ########.fr        #
+#    Updated: 2023/01/30 14:17:40 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,7 @@ $(MAIN): $(NAME) $(DIR_OBJ)/main.o
 	$(LD) $(filter %.o,$^) -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(MAIN_BONUS): $(NAME_BONUS) $(DIR_OBJ)/bonus/main.o
-	$(LD) $(filter %.o,$^) -o $@ $(LDFLAGS) $(LDLIBS)
+	$(LD) $(filter %.o,$^) -o $@ $(LDFLAGS) $(LDLIBS_BONUS)
 
 .PHONY: all clean fclean re bonus
 
