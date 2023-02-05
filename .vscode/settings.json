@@ -1,0 +1,8 @@
+{
+  "[asm-intel-x86-generic]": {
+    "editor.insertSpaces": true,
+  },
+  "[c]": {
+    "editor.insertSpaces": false,
+  }
+}
