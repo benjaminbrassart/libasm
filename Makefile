@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 09:01:16 by bbrassar          #+#    #+#              #
-#    Updated: 2023/01/30 14:17:40 by bbrassar         ###   ########.fr        #
+#    Updated: 2023/02/06 13:14:12 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ AR := ar
 ARFLAGS := rs
 
 CC := cc
-CFLAGS := -Wall -Werror -Wextra -c -g3
+CFLAGS := -Wall -Werror -Wextra -c -g3 -I.
 
 LD := cc
 LDLIBS := -lasm
@@ -45,6 +45,8 @@ SRC += ft_read.s
 SRC += set_errno.s
 
 SRC_BONUS := bonus/ft_atoi_base.s
+SRC_BONUS += bonus/ft_list_size.s
+SRC_BONUS += bonus/ft_list_push_front.s
 
 OBJ := $(SRC:%.s=$(DIR_OBJ)/%.o)
 OBJ_BONUS := $(SRC_BONUS:%.s=$(DIR_OBJ)/%.o)
