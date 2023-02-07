@@ -20,13 +20,13 @@ ft_list_push_front:
 
 .create_node:
     mov rdi, 16
-    call malloc                 ; malloc(16)
+    call malloc WRT ..plt       ; malloc(16)
 
     ; node = rax
     cmp rax, 0                  ; malloc() == NULL
     je .end
 
-    mov [rax + 0], rsi              ; node->data = data
+    mov [rax + 0], rsi          ; node->data = data
     pop rdi
     mov rsi, [rdi]
     mov [rax + 8], rsi          ; node->next = *begin
