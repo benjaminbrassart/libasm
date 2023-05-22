@@ -6,7 +6,7 @@
 /*   By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 09:10:36 by bbrassar          #+#    #+#             */
-/*   Updated: 2023/05/22 15:40:38 by bbrassar         ###   ########.fr       */
+/*   Updated: 2023/05/22 18:05:18 by bbrassar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ static void __test_ft_write(char const *str)
 
 static void __test_ft_read(void)
 {
+	printf("\n-- Testing ft_read --\n\n");
 	char* buffer = malloc(4096);
 
 	{
