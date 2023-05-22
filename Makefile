@@ -6,7 +6,7 @@
 #    By: bbrassar <bbrassar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/30 09:01:16 by bbrassar          #+#    #+#              #
-#    Updated: 2023/05/22 15:29:29 by bbrassar         ###   ########.fr        #
+#    Updated: 2023/05/22 17:57:40 by bbrassar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,9 @@ SRC += ft_read.s
 SRC += set_errno.s
 OBJ := $(SRC:%.s=$(DIR_OBJ)/%.o)
 
+$(MAIN): $(NAME) $(DIR_OBJ)/main.o
+	$(LD) $(filter %.o,$^) -o $@ $(LDFLAGS) $(LDLIBS)
+
 $(NAME): $(OBJ)
 	$(AR) $(ARFLAGS) $@ $?
 
@@ -50,9 +53,6 @@ $(OBJ): $(DIR_OBJ)/%.o: $(DIR_SRC)/%.s
 
 $(DIR_OBJ)/main.o: main.c
 	$(CC) $(CFLAGS) $< -o $@ -D_GNU_SOURCE
-
-$(MAIN): $(NAME) $(DIR_OBJ)/main.o
-	$(LD) $(filter %.o,$^) -o $@ $(LDFLAGS) $(LDLIBS)
 
 .PHONY: all clean fclean re
 
